@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        {% if score %}
+            <title>Score</title>
+        {% endif %}
+        {% if quiz_name %}
+            <title>Quiz: {{quiz_name}}</title>
+        {% endif %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: rgb(241, 187, 176);
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            button {
+                font-size: 25px;
+            }
+        </style>
+        {% if quiz_name %}
+            <script src="{% static 'student_quiz_view.js'%}"></script>
+        {% endif %}
+    </head>
+    <body>
+        {% if score %}
+            <h1 style = "color: green;">Submission Received Successfully</h1>
+            <h2>You score was {{score}}%</h2>
+            <a href = "/classroom/login">Go Back to Login</a>
+        {% endif %}
+        {% if quiz_name %}
+            <h1>{{quiz_name}}</h1>
+            <h4>Instructions: {{instructions}}</h4>
+            <input type = "hidden" id="quiz_needed" value = '{{quiz_name}}'>
+            <div id = "quiz_opened">
+                <form id = 'question_form' action = "/classroom/scoring" method = 'post'>
+                    {% csrf_token %}
+                    <input type = "hidden" id ="que_usr"name ="users" value = '{{user}}'>
+                    <input type = "hidden" id ="quiz_name"name ="name_quiz" value = '{{quiz_name}}'>
+                    <input type = "submit" value = "Submit Quiz">
+                    <br>
+                </form>
+            </div>
+        {% endif %}
+    </body>
+</html>

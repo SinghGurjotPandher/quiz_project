@@ -1,0 +1,22 @@
+{% extends "portal_layout.html"%}
+
+{% block body %}
+    <h1>Register Teacher Account</h1>
+    <form class = "portal_registeration" action = "{% url 'register' %}" method = "post">
+        {% csrf_token %}
+        <input type = "hidden" name = "student_or_teacher" value = "Teacher">
+        Name:
+        <input name = "teacher_name" type = "text">
+        <br>
+        <br>
+        Email Address:
+        <input name = "teacher_email" type = "text">
+        <br>
+        <br>
+        Password:
+        <input name = "teacher_password" type = "password">
+        <br>
+        <br>
+        <input type = "submit">
+    </form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Account</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: rgb(207, 229, 236);
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            button {
+                font-size: 25px;
+            }
+            table, td, th {
+                border: 1px solid black;
+                padding: 2px;
+            }
+            .unique_button {
+                font-size: 15px;
+            }
+        </style>
+        <script src="{% static 'student.js'%}"></script>
+    </head>
+    <body>
+        <h1>Student Name {{user}} <a style = "font-size: 20px;" href="{% url 'login'%}">Logout</a> </h1>
+        <input type = "hidden" id="username" value = '{{user}}'>
+        <hr>
+        <button id="home">Home</button>
+        <button id="due">View Assigned Quizzes</button>
+        <button id="submitted">View Scores</button>
+        <div id = "home_content"></div>
+        <div id = "due_content"></div>
+        <div id = "submitted_content"></div>
+    </body>
+</html>

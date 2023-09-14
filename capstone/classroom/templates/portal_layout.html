@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @media (min-width: 426px){
+                body {
+                    background-color: lightblue;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+                div {
+                    padding: 100px;
+                    width: 500px;
+                    height: 250px;
+                    border: solid thick lightpink;
+                    background-color: white;
+                    text-align: center;
+                    margin: 0 auto;
+                    margin-top: 120px;
+                }
+                .portal_begin {
+                    font-size: 25px;
+                    padding: 20px;
+                }
+                .portal_registeration {
+                    text-align: left;
+                }
+            }
+            @media (max-width:425px){
+                body {
+                    background-color: lightblue;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

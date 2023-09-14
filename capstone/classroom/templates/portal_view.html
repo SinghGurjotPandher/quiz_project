@@ -1,0 +1,8 @@
+{% extends "portal_layout.html"%}
+
+{% block body %}
+    <h1>Choose an account to register!</h1>
+    <a href="{% url 'register_student' %}"><button class = "portal_begin">Student</button></a>
+    <a href="{% url 'register_teacher' %}"><button class = "portal_begin">Teacher</button></a>
+    <h3>Already have an account? <a href="{% url 'login'%}">Login</a></h3>
+{% endblock %}

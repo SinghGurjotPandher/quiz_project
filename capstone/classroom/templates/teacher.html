@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Teacher Account</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: rgb(207, 229, 236);
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            button {
+                font-size: 25px;
+            }
+            table, td, th {
+                border: 1px solid black;
+                padding: 2px;
+            }
+            .unique_button {
+                font-size: 15px;
+            }
+        </style>
+        <script src="{% static 'teacher.js'%}"></script>
+    </head>
+    <body>
+        <h1>Professor {{user}} <a style = "font-size: 20px;" href="{% url 'login'%}">Logout</a> </h1>
+
+        <hr>
+        <button id="home">Home</button>
+        <button id="quizzes">Quizzes Assigned</button>
+        <button id="students_scores">View Submitted Quiz Scores</button>
+        <div id = "home_content"></div>
+        <div id = "quiz_list"></div>
+        <div id = "student_scores"></div>
+        <div id = "form_form">
+            <form id = 'question_form' action = "add_quiz" method = 'post'>
+                {% csrf_token %}
+                <input type = "submit" value = "Assign">
+                <hr>
+                <input type = "hidden" name = "username" value = {{user}} >
+                Title
+                <input type = "text" name = "quizTitle">
+                <br>
+                <br>
+                Instructions
+                <input type = "text" name = "quizInstructions">
+                <br>
+                <br>
+                <hr>
+            </form>
+            <button class = "unique_button" onclick = "addQuestion()">Add a New Question</button>
+            <br>
+            <br>
+        </div>
+    </body>
+</html>
